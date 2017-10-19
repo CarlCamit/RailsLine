@@ -39,6 +39,7 @@
 
 ### Categories
 
+- name:string
 - has_many categorization
 - has_many posts through categorization
 
@@ -75,6 +76,8 @@
 
 - You need S3_ACCESS_KEY, S3_SECRET_KEY, S3_REGION, S3_BUCKET in your .env file to use Shrine in Heroku.
 
-## Models
+## Migration
 
-- Scaffold all the models in the ERD
+- Scaffold all the models in the ERD except Categorization
+- Scaffold Categorization as ``rails g scaffold Categorization post_id:integer category_id:integer``
+- Add ``add_index :categorizations, [:post_id, :category_id]`` in the change ``_create_categorizations.rb`` after line 8

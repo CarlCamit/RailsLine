@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    @profile_id = current_user.id
     @post = Post.new
   end
 

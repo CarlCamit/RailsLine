@@ -1,10 +1,11 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /profiles
   # GET /profiles.json
   def index
     @profiles = Profile.all
+
   end
 
   # GET /profiles/1
@@ -14,17 +15,19 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
-    @profile = Profile.new
+    @profile = Profile.new(current_user.id)
   end
 
-  # GET /profiles/1/edit
-  def edit
-  end
-
+  def edit  
+  end 
   # POST /profiles
   # POST /profiles.json
   def create
-    @profile = Profile.new(profile_params)
+ 
+      @profile = Profile.new(profile_params)
+      @profile.user_id = current_user.id
+      @profile.save
+      respond_with(@profile)
 
     respond_to do |format|
       if @profile.save

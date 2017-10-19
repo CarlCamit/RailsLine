@@ -23,5 +23,13 @@
 </table>
 
 <br>
-
+<% if adviser_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_adviser_session_path, method: :delete) %>        
+</li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_adviser_session_path)  %>  
+  </li>
+<% end %>
 <%= link_to 'New Reply', new_reply_path %>

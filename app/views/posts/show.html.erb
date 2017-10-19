@@ -1,19 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Profile:</strong>
-  <%= @post.profile %>
+  <strong>Avatar Image:</strong>
+  <%=# @post.profile - change to show avatar image %>
 </p>
-
+<%= @user_id %>
 <p>
-  <strong>Subject:</strong>
   <%= @post.subject %>
 </p>
 
 <p>
-  <strong>Body:</strong>
   <%= @post.body %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if user.id == current_user || @user.profile.is_adivser? %>
+  <%= link_to "Reply", new_reply_path %>
+<% end %>
+
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+</li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %> |
+<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', posts_path %>

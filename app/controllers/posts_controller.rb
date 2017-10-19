@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @profile_id = current_user.id
+    @user_id = current_user.id
     @post = Post.new
   end
 
@@ -70,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:profile_id, :subject, :body)
+      params.require(:post).permit(:user_id, :subject, :body, :avatar_image)
     end
 end

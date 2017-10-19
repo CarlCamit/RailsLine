@@ -42,6 +42,7 @@
 - has_many categorization
 - has_many posts through categorization
 
+
 ### Prototype Wireframe
 
 - [Figma Prototype Wireframes](https://www.figma.com/file/a5vKTqigs302i0vo7B1rJuxq/Untitled)

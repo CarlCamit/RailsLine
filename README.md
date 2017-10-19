@@ -27,7 +27,7 @@
 
 ### Post
 
-- belongs_to user
+- belongs_to profile
 - has_many categorization
 - has_many categories through categorization
 - subject:text
@@ -42,6 +42,11 @@
 - has_many categorization
 - has_many posts through categorization
 
+### Catgorization
+
+- has_many posts
+- has_many categories
+
 ### Prototype Wireframe
 
 - [Figma Prototype Wireframes](https://www.figma.com/file/a5vKTqigs302i0vo7B1rJuxq/Untitled)
@@ -52,7 +57,7 @@
 
 # Setup
 
-- Generate a new rails file with ``rails new FILE -T --database=postgresql``
+- Generate a new rails file with ``rails new <FILE> -T --database=postgresql``
 
 ## Gems
 

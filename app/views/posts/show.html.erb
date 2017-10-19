@@ -1,11 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Avatar Image:</strong>
-  <%=# @post.profile - change to show avatar image %>
-</p>
-<%= @user_id %>
-<p>
+  <strong>Subject title, still needs avatar:</strong>
+  <%= @user_id %>
   <%= @post.subject %>
 </p>
 
@@ -13,9 +10,8 @@
   <%= @post.body %>
 </p>
 
-<% if adviser.id == current_adviser %>
-  <%= link_to "Reply", new_reply_path %>
-<% end %>
+<%# <% if adviser.id == current_adviser 
+  # link_to "Reply", new_reply_path %>
 
 <% if user_signed_in? %>
   <li>
@@ -26,5 +22,5 @@
   <%= link_to('Login', new_user_session_path)  %>  
   </li>
 <% end %> |
-<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Posts', posts_path %>

@@ -2,7 +2,6 @@
 
 <p>
   <strong>Avatar Image:</strong>
-  <%=# @post.profile - change to show avatar image %>
 </p>
 <%= @user_id %>
 <p>
@@ -13,8 +12,14 @@
   <%= @post.body %>
 </p>
 
-<% if adviser.id == current_adviser %>
-  <%= link_to "Reply", new_reply_path %>
+<% @replies.each do |reply| %>
+  <div>
+    <p><%= reply.body %></p>
+  </div>
+<% end %>
+
+<% if adviser_signed_in? %>
+  <%= render :partial => '/replies/form' %>
 <% end %>
 
 <% if user_signed_in? %>
@@ -25,6 +30,8 @@
   <li>
   <%= link_to('Login', new_user_session_path)  %>  
   </li>
-<% end %> |
-<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', posts_path %>
+<% end %><br>
+
+<%= link_to 'Back', posts_path, class:"btn btn-primary" %>
+<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
+<%= link_to 'Reply', new_post_reply_path(@post), class:"btn btn-primary" %>

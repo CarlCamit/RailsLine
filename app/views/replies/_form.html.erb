@@ -1,28 +1,10 @@
-<%= form_with(model: reply, local: true) do |form| %>
-  <% if reply.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(reply.errors.count, "error") %> prohibited this reply from being saved:</h2>
-
-      <ul>
-      <% reply.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<div class="field" 
-   <%= @adviser_id %>
-     <% form.hidden_field :adviser_id %>
-     <%= form.label :adviser_id %>
-    <% form.text_field :adviser_id, id: :post_adviser_id %>
-
+<%= form_with(model: [@post, @post.replies.build]) do |form| %>
   <div class="field">
     <%= form.label :body %>
     <%= form.text_area :body, id: :reply_body %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Reply' %>
   </div>
 <% end %>

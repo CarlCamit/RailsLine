@@ -1,3 +1,3 @@
 class Reply < ApplicationRecord
-  belongs_to :adviser
+  belongs_to :post
 end

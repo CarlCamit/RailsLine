@@ -13,8 +13,9 @@ Rails.application.routes.draw do
 
   resources :categorizations
   resources :categories
-  resources :replies
-  resources :posts
+  resources :posts do
+    resources :replies
+  end
 
   #root "posts#index"
   

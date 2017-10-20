@@ -13,7 +13,7 @@
 </p>
 
 <% @replies.each do |reply| %>
-  <div>
+  <div class="card">
     <p><%= reply.body %></p>
   </div>
 <% end %>
@@ -22,16 +22,8 @@
   <%= render :partial => '/replies/form' %>
 <% end %>
 
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-</li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %><br>
-
 <%= link_to 'Back', posts_path, class:"btn btn-primary" %>
-<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
-<%= link_to 'Reply', new_post_reply_path(@post), class:"btn btn-primary" %>
+
+<% if @post.user.id == (current_user.id || current_adviser.id) %>
+  <%= link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
+<% end %>

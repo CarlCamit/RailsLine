@@ -1,11 +1,10 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  
+
   # GET /profiles
   # GET /profiles.json
   def index
     @profiles = Profile.all
-
   end
 
   # GET /profiles/1
@@ -15,6 +14,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
+
     @profile = Profile.new(current_user.id)
   end
 
@@ -72,6 +72,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:user_id, :avatar_image_data, :is_adviser)
+      params.require(:profile).permit(:user_id, :avatar_image, :is_adviser, :remove_avatar_image, :is_adviser)
     end
 end

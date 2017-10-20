@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :advisers
   devise_for :users
   
@@ -19,4 +20,5 @@ Rails.application.routes.draw do
 
   #root "posts#index"
   
+
 end

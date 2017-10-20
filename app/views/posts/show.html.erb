@@ -5,6 +5,7 @@
 </p>
 <%= @user_id %>
 <p>
+
   <%= @post.subject %>
 </p>
 
@@ -21,6 +22,7 @@
 <% if adviser_signed_in? %>
   <%= render :partial => '/replies/form' %>
 <% end %>
+
 
 <% if user_signed_in? %>
   <li>

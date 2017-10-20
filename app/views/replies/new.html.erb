@@ -2,7 +2,6 @@
 
 <%= render 'form', reply: @reply %>
 
-
 <% if adviser_signed_in? %>
   <li>
   <%= link_to('Logout', destroy_adviser_session_path, method: :delete) %>        
@@ -12,4 +11,5 @@
   <%= link_to('Login', new_adviser_session_path)  %>  
   </li>
 <% end %>
+
 <%= link_to 'Back', replies_path %>

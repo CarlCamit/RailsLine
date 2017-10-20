@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+
+<div>
+<p>
+  <strong>User:</strong>
+  <%= @profile.user.email %>
+</p>
+  <% if @profile.is_adviser == true %>
+  <strong>Adviser</strong>
+  <% end %>
+</div>
+
+  <figure>
+  <% if @profile.avatar_image_data? %>
+    <%= image_tag @profile.avatar_image_url(:thumb) %>
+  <% end %>
+</figure>
+
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

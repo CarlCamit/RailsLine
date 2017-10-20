@@ -19,12 +19,6 @@
 - email:string
 - password:string
 
-### Profile
-
-- belongs_to user
-- avatar_image_data:text
-- is_adviser:boolean
-
 ### Post
 
 - belongs_to user
@@ -41,6 +35,10 @@
 
 - has_many categorization
 - has_many posts through categorization
+
+### Categorizations
+- belongs_to category
+- belongs_to post
 
 ### Prototype Wireframe
 
@@ -73,3 +71,11 @@
 ## Models
 
 - Scaffold all the models in the ERD
+
+## Source code management tool usage
+
+- All team members created their own branches on github at different times with the process working well and merges happening as required.
+
+
+## Presentation
+- [Application presentation] (https://docs.google.com/presentation/d/1OcfHxmdnk-vfTEQ4x7C0ypoRoDsKE-eryUTN7bM-e-A/edit?usp=sharing)

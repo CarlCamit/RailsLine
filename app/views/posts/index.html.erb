@@ -1,24 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>This is the index page</h1>
 
-<div>
 <% @posts.each do |post| %>
-  <%= link_to post.subject, post %>
-  <%= time_ago_in_words(post.created_at) %>
+  <div class="container">
+    <div class="card" style="width:50%">
+      <div class="card-block">
+        <span class="card-title"><%= post.subject %></span>
+        <span class="card-subtitle"><%= time_ago_in_words(post.created_at) %></span>
+        <%= link_to 'Show', post, class:"btn btn-primary float-right"%>
+      </div>
+    </div>
+  </div>
 <% end %>
-</div>
 
 <br>
 
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-</li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
+
 
 <%= link_to 'New Post', new_post_path, class:"btn btn-primary" %>

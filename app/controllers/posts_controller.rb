@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @replies = Reply.all
+    @replies = @post.replies.all
   end
 
   def new

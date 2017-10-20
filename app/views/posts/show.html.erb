@@ -1,20 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Avatar Image:</strong>
-</p>
-<%= @user_id %>
-<p>
-  <%= @post.subject %>
-</p>
-
-<p>
-  <%= @post.body %>
-</p>
+<div class="container">
+  <div class="card">
+    <div class="card-block">
+      <strong class="card-title"><%= @post.subject %></strong>
+      <p class="card-text"><%= @post.body %></p>
+    </div>
+  </div>
+</div>
 
 <% @replies.each do |reply| %>
-  <div class="card">
-    <p><%= reply.body %></p>
+  <div class="container">
+    <div class="card">
+      <div class="card-block">
+        <p class="card-text"><%= reply.body %></p>
+      </div>
+    </div>
   </div>
 <% end %>
 

@@ -4,19 +4,8 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+# Store environment variables
 gem 'dotenv-rails', groups: [:development, :test]
-
-gem 'bootstrap', '~> 4.0.0.beta'
-
-gem 'devise'
-
-gem 'fastimage'
-gem 'image_processing'
-gem 'mini_magick'
-gem 'shrine'
-
-gem 'aws-sdk', '~> 3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -42,6 +31,16 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'bootstrap', '~> 4.0.0.beta'
+# Devise for user accounts
+gem 'devise'
+# Shrine and dependencies
+gem 'fastimage'
+gem 'image_processing'
+gem 'mini_magick'
+gem 'shrine'
+# Amazon web services s3 storage
+gem 'aws-sdk', '~> 3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

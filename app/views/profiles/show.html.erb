@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+
+<div>
 <p>
   <strong>User:</strong>
-  <%= @profile.user %>
+  <%= @profile.user.email %>
 </p>
+  <% if @profile.is_adviser == true %>
+  <strong>Adviser</strong>
+  <% end %>
+</div>
 
-<p>
-  <strong>Avatar image data:</strong>
-  <%= @profile.avatar_image_data %>
-</p>
+  <figure>
+  <% if @profile.avatar_image_data? %>
+    <%= image_tag @profile.avatar_image_url(:thumb) %>
+  <% end %>
+</figure>
 
-<p>
-  <strong>Is adviser:</strong>
-  <%= @profile.is_adviser %>
-</p>
+
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>

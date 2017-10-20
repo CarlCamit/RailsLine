@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Subject title, still needs avatar:</strong>
-  <%= @user_id %>
+  <strong>Avatar Image:</strong>
+</p>
+<%= @user_id %>
+<p>
+
   <%= @post.subject %>
 </p>
 
@@ -10,8 +13,16 @@
   <%= @post.body %>
 </p>
 
-<%# <% if adviser.id == current_adviser 
-  # link_to "Reply", new_reply_path %>
+<% @replies.each do |reply| %>
+  <div>
+    <p><%= reply.body %></p>
+  </div>
+<% end %>
+
+<% if adviser_signed_in? %>
+  <%= render :partial => '/replies/form' %>
+<% end %>
+
 
 <% if user_signed_in? %>
   <li>
@@ -21,7 +32,8 @@
   <li>
   <%= link_to('Login', new_user_session_path)  %>  
   </li>
-<% end %> |
-<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Posts', posts_path %>
+<% end %><br>
 
+<%= link_to 'Back', posts_path, class:"btn btn-primary" %>
+<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
+<%= link_to 'Reply', new_post_reply_path(@post), class:"btn btn-primary" %>

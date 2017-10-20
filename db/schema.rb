@@ -59,11 +59,11 @@ ActiveRecord::Schema.define(version: 20171019222338) do
   end
 
   create_table "replies", force: :cascade do |t|
-    t.bigint "adviser_id"
+    t.bigint "post_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["adviser_id"], name: "index_replies_on_adviser_id"
+    t.index ["post_id"], name: "index_replies_on_post_id"
 
   end
 
@@ -86,6 +86,6 @@ ActiveRecord::Schema.define(version: 20171019222338) do
   end
 
   add_foreign_key "posts", "users"
-  add_foreign_key "replies", "advisers"
+  add_foreign_key "replies", "posts"
 
 end

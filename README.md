@@ -76,6 +76,5 @@
 
 - All team members created their own branches on github at different times with the process working well and merges happening as required.
 
-
 ## Presentation
 - [Application presentation] (https://docs.google.com/presentation/d/1OcfHxmdnk-vfTEQ4x7C0ypoRoDsKE-eryUTN7bM-e-A/edit?usp=sharing)

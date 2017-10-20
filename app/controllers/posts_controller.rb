@@ -7,6 +7,8 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  #, :include => :avatar_image
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -14,6 +16,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    @user_id = current_user.id
     @post = Post.new
   end
 
@@ -69,6 +72,8 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:profile_id, :subject, :body)
+
+      params.require(:post).permit(:user_id, :subject, :body, :avatar_image)
+
     end
 end

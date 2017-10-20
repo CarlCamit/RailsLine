@@ -14,17 +14,20 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
-    @profile = Profile.new
+
+    @profile = Profile.new(current_user.id)
   end
 
-  # GET /profiles/1/edit
-  def edit
-  end
-
+  def edit  
+  end 
   # POST /profiles
   # POST /profiles.json
   def create
-    @profile = Profile.new(profile_params)
+ 
+      @profile = Profile.new(profile_params)
+      @profile.user_id = current_user.id
+      @profile.save
+      respond_with(@profile)
 
     respond_to do |format|
       if @profile.save
@@ -69,6 +72,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:user_id, :avatar_image, :is_adviser, :remove_avatar_image)
+      params.require(:profile).permit(:user_id, :avatar_image, :is_adviser, :remove_avatar_image, :is_adviser)
     end
 end

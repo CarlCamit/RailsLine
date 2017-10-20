@@ -1,4 +1,4 @@
-# README
+ # README
 
 ---
 
@@ -27,7 +27,8 @@
 
 ### Post
 
-- belongs_to profile
+
+- belongs_to user
 - has_many categorization
 - has_many categories through categorization
 - subject:text
@@ -60,6 +61,7 @@
 
 - Generate a new rails file with ``rails new <FILE> -T --database=postgresql``
 
+
 ## Gems
 
 - DOTENV for environment variables
@@ -76,7 +78,8 @@
 
 - You need S3_ACCESS_KEY, S3_SECRET_KEY, S3_REGION, S3_BUCKET in your .env file to use Shrine in Heroku.
 
-## Migration
+
+## Migration & Models
 
 - Scaffold all the models in the ERD except Categorization
 - Scaffold Categorization as ``rails g scaffold Categorization post_id:integer category_id:integer``

@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+<div class="field" 
+   <%= @adviser_id %>
+     <% form.hidden_field :adviser_id %>
+     <%= form.label :adviser_id %>
+    <% form.text_field :adviser_id, id: :post_adviser_id %>
+
   <div class="field">
     <%= form.label :body %>
     <%= form.text_area :body, id: :reply_body %>

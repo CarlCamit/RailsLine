@@ -4,6 +4,7 @@
 
 <div>
 <% @posts.each do |post| %>
+  <%= post.user.avatar_image %>
   <%= link_to post.subject, post %>
   <%= time_ago_in_words(post.created_at) %>
 <% end %>

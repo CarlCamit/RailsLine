@@ -21,10 +21,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-   <div class="field">
-    <%= f.label :avatar_image %><br />
-    <%= f.text_field :avatar_image, autocomplete: "off" %>
+  <div class="field">
+    <%= f.label :avatar_image %>
+    <%= f.file_field :avatar_image, id: :avatar_image_data %>
   </div>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>

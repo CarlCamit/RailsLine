@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20171019222338) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "avatar_image"
+    t.text "avatar_image_data"
     t.index ["email"], name: "index_advisers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_advisers_on_reset_password_token", unique: true
   end
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20171019222338) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "avatar_image"
+    t.text "avatar_image_data"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,0 +1,13 @@
+<%= form_with(model: [@post, @post.replies.build]) do |form| %>
+  <div class="card">
+    <div class="card-block">
+      <div class="field">
+        <%= form.text_area :body, id: :reply_body %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit 'Reply', class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

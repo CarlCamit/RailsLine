@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+
+<% @posts.each do |post| %>
+  <div class="container">
+    <div class="card" style="width:50%">
+      <div class="card-block">
+        <span class="card-title"><%= post.subject %></span>
+        <span class="card-subtitle"><%= time_ago_in_words(post.created_at) %></span>
+        <%= link_to 'Show', post, class:"btn btn-primary float-right"%>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<br>
+
+
+
+<%= link_to 'New Post', new_post_path, class:"btn btn-primary" %>

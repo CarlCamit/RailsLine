@@ -1,0 +1,27 @@
+@import "bootstrap";
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    background: linear-gradient(to bottom right, #e93e4b , #3221e7 );
+}
+
+body {
+    margin: 20px;
+    color: white;
+}
+   
+h1 {
+    font-weight: bold;
+    font-size: 48px;
+    display: inline;
+}
+
+.container {
+}
+
+.card {
+    background: rgb(156, 98, 159);
+    width: 50%;
+    margin: 1em auto;
+}
